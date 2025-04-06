@@ -59,6 +59,8 @@ function App() {
         <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         
         <div className="flex flex-col md:p-10 p-2 md:gap-10 gap-4">
+
+          
           <NoteForm
             handleSubmit={handleSubmit}
             title={title}
@@ -74,7 +76,7 @@ function App() {
                 No notes found. Start creating some!
               </p>
             ) : (
-              <div className="grid gap-4 flex-2 ">
+              <div className="grid gap-10 flex-2 ">
                 {filteredNotes.map(note => (
                   <Note
                     key={note.id}
