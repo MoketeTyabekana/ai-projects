@@ -2,11 +2,11 @@ import { FaGithub, FaLinkedin, FaFacebook, FaTwitter, FaTiktok, FaInstagram } fr
 
 const Footer = () => (
   <footer>
-    <div className="bg-primary text-white p-10">
+    <div className="bg-primary text-white p-6">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         {/* Copyright Text */}
         <div className="mb-4 md:mb-0">
-          <p className="text-center md:text-left md:text-lg text-md">
+          <p className="text-center md:text-left">
             &copy; {new Date().getFullYear()} E-Notes. All rights reserved.
           </p>
         </div>

@@ -110,7 +110,7 @@ const NoteForm = ({
       )}
 
       {/* Tab Navigation */}
-      <div className="flex mb-4 border-b border-gray-200 md:text-lg text-md">
+      <div className="flex mb-4 border-b border-gray-200">
         {["write", "import", "audio"].map((tab) => (
           <button
             key={tab}
@@ -136,13 +136,13 @@ const NoteForm = ({
           <input
             type="text"
             placeholder="Note Title"
-            className="w-full p-2 mb-4 border rounded-sm outline-none md:text-lg text-md"
+            className="w-full p-2 mb-4 border rounded-sm outline-none"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
             placeholder="Note Content"
-            className="w-full p-2 mb-4 border rounded-sm min-h-32 md:text-lg text-md outline-none "
+            className="w-full p-2 mb-4 border rounded-sm min-h-20"
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
@@ -159,7 +159,7 @@ const NoteForm = ({
               accept=".txt,.md"
               onChange={handleFileUpload}
             />
-            <FiFileText className="md:text-3xl text-lg text-gray-400 mb-2" />
+            <FiFileText className="text-3xl text-gray-400 mb-2" />
             <p className="text-gray-500 text-center">
               Click to upload text file (.txt, .md)<br />
               File name will be used as title

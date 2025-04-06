@@ -17,7 +17,7 @@ const Note = ({ note, editNote, deleteNote }) => {
       <div className="flex items-center justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
         <PiNotepadFill className="text-button-bg rounded text-primary" size={50} />
         <div className="flex-1">
-          <h3 className="md:text-lg text-md font-semibold mb-2 text-primary">{note.title}</h3>
+          <h3 className="text-lg font-semibold mb-2 text-primary">{note.title}</h3>
           <p className="text-sm text-gray-400 mb-2">{note.date}</p>
         </div>
         <div className="flex gap-2">
@@ -55,7 +55,7 @@ const Note = ({ note, editNote, deleteNote }) => {
           {note.content.length > 100 && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="text-blue-500 hover:text-blue-600 md:text-md text-sm ml-2"
+              className="text-blue-500 hover:text-blue-600 text-md ml-2"
             >
               {isExpanded ? "View Less" : "View More"}
             </button>
