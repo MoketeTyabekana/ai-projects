@@ -13,12 +13,13 @@ const Note = ({ note, editNote, deleteNote }) => {
       : note.content;
 
   return (
-    <div className="bg-gray-50 md:p-4 p-2 rounded-lg shadow-md flex flex-col items-center h-fit">
+    
+    <div className="bg-gray-50 md:p-4 p-2 rounded-lg md:shadow-md shadow-sm flex flex-col items-center h-fit">
       <div className="flex items-center justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
         <PiNotepadFill className="text-button-bg rounded text-primary" size={50} />
         <div className="flex-1">
-          <h3 className="text-lg font-semibold mb-2 text-primary">{note.title}</h3>
-          <p className="text-sm text-gray-400 mb-2">{note.date}</p>
+          <h3 className="md:text-lg text-md font-semibold mb-2 text-primary">{note.title}</h3>
+          <p className="md:text-sm text-xs text-gray-400 mb-2">{note.date}</p>
         </div>
         <div className="flex gap-2">
           <button

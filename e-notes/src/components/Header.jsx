@@ -2,8 +2,8 @@ import { PiNotepadFill } from "react-icons/pi";
 
 const Header = ({ searchTerm, setSearchTerm }) => (
   <nav className="bg-primary flex flex-col md:flex-row justify-between md:items-center items-start md:px-10 md:py-4 p-2 w-full">
-    <h1 className="text-3xl font-bold text-center text-gray-50 flex items-center text-shadow-lg mb-4 md:mb-0">
-      <PiNotepadFill className="md:inline-block mr-2" size={50} />
+    <h1 className="md:text-3xl text-2xl font-bold text-center text-gray-50 flex items-center text-shadow-lg mb-4 md:mb-0">
+      <PiNotepadFill className="md:inline-block mr-2 md:w-10 w-8 h-auto" />
       E-Notes
     </h1>
     <input

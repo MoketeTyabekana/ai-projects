@@ -100,7 +100,7 @@ const NoteForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white md:p-6 p-2 rounded-lg shadow-md relative"
+      className="bg-white md:p-6 p-2 rounded-lg md:shadow-md shadow-sm relative"
     >
       {/* Loading Overlay */}
       {isLoading && (
