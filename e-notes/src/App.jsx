@@ -54,7 +54,7 @@ function App() {
   );
 
   return (
-    <main>
+    <main className="bg-white min-h-screen">
       <section className="bg-body-bg min-h-screen">
         <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         
