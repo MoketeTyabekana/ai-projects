@@ -1,6 +1,52 @@
 import { useState, useEffect } from "react";
 import { PiNotepadFill } from "react-icons/pi";
 
+const Note = ({ note, editNote, deleteNote }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const truncatedContent =
+    note.content.length > 100
+      ? note.content.substring(0, 50) + "..."
+      : note.content;
+
+  return (
+    <div className="bg-white p-4 rounded-lg shadow-md flex flex-row items-center h-fit">
+      <PiNotepadFill
+        className="inline-block mr-2 text-blue-500 bg-gray-100 rounded"
+        size={100}
+      />
+      <div className="flex-1">
+        <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
+        <p className="text-gray-600 mb-4">
+          {isExpanded ? note.content : truncatedContent}
+          {note.content.length > 100 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-blue-500 hover:text-blue-600 ml-2 text-sm"
+            >
+              {isExpanded ? "View Less" : "View More"}
+            </button>
+          )}
+        </p>
+        <p className="text-sm text-gray-400 mb-2">{note.date}</p>
+      </div>
+      <div className="flex flex-col space-y-2">
+        <button
+          onClick={() => editNote(note)}
+          className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => deleteNote(note.id)}
+          className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  );
+};
+
 function App() {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");
@@ -8,7 +54,6 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [editId, setEditId] = useState(null);
 
-  // Load notes from localStorage on mount
   useEffect(() => {
     const savedNotes = localStorage.getItem("notes");
     if (savedNotes) {
@@ -16,7 +61,6 @@ function App() {
     }
   }, []);
 
-  // Save notes to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
@@ -26,14 +70,12 @@ function App() {
     if (!title || !content) return;
 
     if (editId) {
-      // Update existing note
       const updatedNotes = notes.map((note) =>
         note.id === editId ? { ...note, title, content } : note
       );
       setNotes(updatedNotes);
       setEditId(null);
     } else {
-      // Create new note
       const newNote = {
         id: Date.now(),
         title,
@@ -65,13 +107,12 @@ function App() {
   );
 
   return (
-    <div className="">
-      <nav className="bg-blue-500 flex justify-between items-center px-10 py-4">
+    <div className="bg-[#F8F4E1] min-h-screen">
+      <nav className="bg-[#74512D] flex justify-between items-center px-10 py-4">
         <h1 className="text-3xl font-bold text-center text-gray-50 flex justify-center items-center text-shadow-lg">
           <PiNotepadFill className="inline-block mr-2" size={50} />
           E-Notes
         </h1>
-        {/* Search Input */}
         <input
           type="text"
           placeholder="Search notes..."
@@ -82,10 +123,9 @@ function App() {
       </nav>
 
       <div className=" grid grid-cols-2 p-10 gap-10">
-        {/* Note Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white p-6 rounded-lg shadow-md mb-8 "
+          className="bg-white p-6 rounded-lg shadow-md"
         >
           <input
             type="text"
@@ -102,7 +142,7 @@ function App() {
           />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg w-full"
+            className="bg-button-bg hover:bg-button-hover text-white px-6 py-2 rounded-lg w-full"
           >
             {editId ? "Update Note" : "Add Note"}
           </button>
@@ -114,33 +154,14 @@ function App() {
               No notes found. Start creating some!
             </p>
           )}
-          {/* Notes List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-2 min-h-screen">
+          <div className="grid  gap-4 flex-2 min-h-screen">
             {filteredNotes.map((note) => (
-              <div key={note.id} className="bg-white p-4 rounded-lg shadow-md flex flex-col h-fit">
-                <PiNotepadFill className="inline-block mr-2" size={20} />
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 flex items-center">
-                    {note.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{note.content}</p>
-                  <p className="text-sm text-gray-400 mb-2">{note.date}</p>
-                </div>
-                <div className="flex justify-end space-x-2">
-                  <button
-                    onClick={() => editNote(note)}
-                    className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteNote(note.id)}
-                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+              <Note
+                key={note.id}
+                note={note}
+                editNote={editNote}
+                deleteNote={deleteNote}
+              />
             ))}
           </div>
         </div>
