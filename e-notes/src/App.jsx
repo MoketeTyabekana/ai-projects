@@ -74,7 +74,7 @@ function App() {
                 No notes found. Start creating some!
               </p>
             ) : (
-              <div className="grid gap-4 flex-2 min-h-screen">
+              <div className="grid gap-4 flex-2 ">
                 {filteredNotes.map(note => (
                   <Note
                     key={note.id}
