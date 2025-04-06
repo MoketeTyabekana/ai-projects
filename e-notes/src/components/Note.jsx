@@ -14,7 +14,7 @@ const Note = ({ note, editNote, deleteNote }) => {
 
   return (
     
-    <div className="bg-gray-50 md:p-4 p-2 rounded-lg md:shadow-md shadow-sm flex flex-col items-center h-auto">
+    <div className="bg-gray-50 md:p-4 p-2 md:rounded-lg rounded-sm md:shadow-md shadow-sm flex flex-col items-center h-auto">
       <div className="flex items-center justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
         <PiNotepadFill className="text-button-bg rounded text-primary md:w-10 w-8 h-auto" />
         <div className="flex-1">

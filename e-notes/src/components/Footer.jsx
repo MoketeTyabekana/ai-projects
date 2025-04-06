@@ -13,22 +13,22 @@ const Footer = () => (
 
         {/* Social Media Icons */}
         <div className="flex space-x-4">
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <a href="https://github.com/MoketeTyabekana/" target='blank' className="hover:text-gray-300 transition-colors">
             <FaGithub size={24} aria-label="GitHub" />
           </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <a href="https://www.linkedin.com/in/mokete-elias-tyabekana-88a22a143/" target='blank' className="hover:text-gray-300 transition-colors">
             <FaLinkedin size={24} aria-label="LinkedIn" />
           </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <a href="https://web.facebook.com/kayno.Eli.mokete/" target='blank' className="hover:text-gray-300 transition-colors">
             <FaFacebook size={24} aria-label="Facebook" />
           </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <a href="https://x.com/mokete__" target='blank' className="hover:text-gray-300 transition-colors">
             <FaTwitter size={24} aria-label="X (Formerly Twitter)" />
           </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <a href="https://www.tiktok.com/@elimokete?lang=en" target='blank' className="hover:text-gray-300 transition-colors">
             <FaTiktok size={24} aria-label="TikTok" />
           </a>
-          <a href="#" className="hover:text-gray-300 transition-colors">
+          <a href="https://www.instagram.com/eli.mokete/" target='blank' className="hover:text-gray-300 transition-colors">
             <FaInstagram size={24} aria-label="Instagram" />
           </a>
         </div>
