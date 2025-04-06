@@ -6,13 +6,13 @@ const NoteForm = ({ handleSubmit, title, setTitle, content, setContent, editId }
       <input
         type="text"
         placeholder="Note Title"
-        className="w-full p-2 mb-4 border rounded-sm outline-none"
+        className="w-full p-2 mb-4 border rounded-sm outline-none border-primary bg-white "
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
         placeholder="Note Content"
-        className="w-full p-2 mb-4 border rounded-sm min-h-20"
+        className="w-full p-2 mb-4 border border-primary bg-white rounded-sm min-h-20 outline-none"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />
