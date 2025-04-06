@@ -9,7 +9,7 @@ const Header = ({ searchTerm, setSearchTerm }) => (
     <input
       type="text"
       placeholder="Search notes..."
-      className="md:w-1/3 p-3 border rounded-sm outline-none border-none bg-gray-50 shadow-sm"
+      className="md:w-1/3 w-full p-3 border rounded-sm outline-none border-none bg-gray-50 shadow-sm"
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
     />

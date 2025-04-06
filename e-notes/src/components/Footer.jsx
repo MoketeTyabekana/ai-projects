@@ -6,7 +6,7 @@ const Footer = () => (
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         {/* Copyright Text */}
         <div className="mb-4 md:mb-0">
-          <p className="text-center md:text-left">
+          <p className="text-center md:text-left md:text-lg text-md">
             &copy; {new Date().getFullYear()} E-Notes. All rights reserved.
           </p>
         </div>
