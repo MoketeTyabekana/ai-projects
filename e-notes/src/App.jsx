@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { PiNotepadFill } from "react-icons/pi";
+import { MdDeleteForever } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 
 const Note = ({ note, editNote, deleteNote }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -9,39 +11,41 @@ const Note = ({ note, editNote, deleteNote }) => {
       : note.content;
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md flex flex-row items-center h-fit">
-      <PiNotepadFill
-        className="inline-block mr-2 text-blue-500 bg-gray-100 rounded"
-        size={100}
-      />
-      <div className="flex-1">
-        <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
-        <p className="text-gray-600 mb-4">
-          {isExpanded ? note.content : truncatedContent}
-          {note.content.length > 100 && (
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="text-blue-500 hover:text-blue-600 ml-2 text-sm"
-            >
-              {isExpanded ? "View Less" : "View More"}
-            </button>
-          )}
-        </p>
-        <p className="text-sm text-gray-400 mb-2">{note.date}</p>
-      </div>
-      <div className="flex flex-col space-y-2">
+    <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center h-fit">
+      <div className="flex items-center justify-between w-full mb-4">
+        <PiNotepadFill
+          className="inline-block mr-2 text-button-bg  rounded"
+          size={50}
+        />
+        <div className="flex-1">
+          <h3 className="text-lg font-semibold mb-2">{note.title}</h3>
+          <p className="text-sm text-gray-400 mb-2">{note.date}</p>
+        </div>
         <button
           onClick={() => editNote(note)}
           className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600"
         >
-          Edit
+          <FaEdit size={20} />
         </button>
         <button
           onClick={() => deleteNote(note.id)}
           className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
         >
-          Delete
+         <MdDeleteForever size={20} />
         </button>
+      </div>
+      <div className="    w-full">
+        <p className="text-gray-600 mb-4 text-left">
+          {isExpanded ? note.content : truncatedContent}
+          {note.content.length > 100 && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-blue-500 hover:text-blue-600  text-md"
+            >
+              {isExpanded ? "View Less" : "View More"}
+            </button>
+          )}
+        </p>
       </div>
     </div>
   );
@@ -107,8 +111,8 @@ function App() {
   );
 
   return (
-    <div className="bg-[#F8F4E1] min-h-screen">
-      <nav className="bg-[#74512D] flex justify-between items-center px-10 py-4">
+    <div className="bg-body-bg min-h-screen">
+      <nav className="bg-primary flex justify-between items-center px-10 py-4">
         <h1 className="text-3xl font-bold text-center text-gray-50 flex justify-center items-center text-shadow-lg">
           <PiNotepadFill className="inline-block mr-2" size={50} />
           E-Notes
@@ -142,7 +146,7 @@ function App() {
           />
           <button
             type="submit"
-            className="bg-button-bg hover:bg-button-hover text-white px-6 py-2 rounded-lg w-full"
+            className="bg-primary hover:bg-secondary text-white px-6 py-2 rounded-lg w-full"
           >
             {editId ? "Update Note" : "Add Note"}
           </button>
