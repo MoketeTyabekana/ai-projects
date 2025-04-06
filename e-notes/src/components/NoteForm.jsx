@@ -142,7 +142,7 @@ const NoteForm = ({
           />
           <textarea
             placeholder="Note Content"
-            className="w-full p-2 mb-4 border rounded-sm min-h-20"
+            className="w-full p-2 mb-4 border rounded-sm min-h-32"
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
