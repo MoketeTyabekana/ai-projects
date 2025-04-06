@@ -14,9 +14,9 @@ const Note = ({ note, editNote, deleteNote }) => {
 
   return (
     
-    <div className="bg-gray-50 md:p-4 p-2 rounded-lg md:shadow-md shadow-sm flex flex-col items-center h-fit">
+    <div className="bg-gray-50 md:p-4 p-2 rounded-lg md:shadow-md shadow-sm flex flex-col items-center h-auto">
       <div className="flex items-center justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
-        <PiNotepadFill className="text-button-bg rounded text-primary" size={50} />
+        <PiNotepadFill className="text-button-bg rounded text-primary md:w-10 w-8 h-auto" />
         <div className="flex-1">
           <h3 className="md:text-lg text-md font-semibold mb-2 text-primary">{note.title}</h3>
           <p className="md:text-sm text-xs text-gray-400 mb-2">{note.date}</p>
@@ -24,34 +24,34 @@ const Note = ({ note, editNote, deleteNote }) => {
         <div className="flex gap-2">
           <button
             onClick={() => editNote(note)}
-            className="p-2 bg-primary text-white rounded hover:bg-secondary"
+            className="p-2 bg-primary text-white rounded md:hover:bg-secondary md:w-10 w-8 h-auto"
           >
-            <FaEdit size={20} />
+            <FaEdit/>
           </button>
           <button
             onClick={() => exportAsPDF(note)}
-            className="p-2 bg-green-500 text-white rounded hover:bg-green-600"
+            className="p-2 bg-green-500 text-white rounded md:hover:bg-green-600 md:w-10 w-8 h-auto"
           >
-            <FaFilePdf size={20} />
+            <FaFilePdf />
           </button>
           <button
             onClick={() => shareAsText(note)}
-            className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="p-2 bg-blue-500 text-white rounded md:hover:bg-blue-600 md:w-10 w-8 h-auto"
           >
-            <MdShare size={20} />
+            <MdShare />
           </button>
           <button
             onClick={() => deleteNote(note.id)}
-            className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
+            className="p-2 bg-red-500 text-white rounded md:hover:bg-red-600 md:w-10 w-8 h-auto"
           >
-            <MdDeleteForever size={20} />
+            <MdDeleteForever  />
           </button>
         </div>
       </div>
       
       <div className="w-full">
       <hr className="bg-primary  my-2" />
-        <p className="text-gray-600 mb-4 text-left">
+        <p className="text-gray-600 mb-4 text-left text-sm md:text-md">
           {isExpanded ? note.content : truncatedContent}
           {note.content.length > 100 && (
             <button
