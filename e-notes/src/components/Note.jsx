@@ -15,7 +15,7 @@ const Note = ({ note, editNote, deleteNote }) => {
   return (
     
     <div className="bg-gray-50 md:p-4 p-2 md:rounded-lg rounded-sm md:shadow-md shadow-sm flex flex-col items-center ">
-      <div className="flex items-center justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
+      <div className="flex items-center md:justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
         <PiNotepadFill className="text-button-bg rounded text-primary md:w-10 w-8 h-auto" />
         <div className="flex-1">
           <h3 className="md:text-lg text-md font-semibold mb-2 text-primary">{note.title}</h3>
@@ -51,7 +51,7 @@ const Note = ({ note, editNote, deleteNote }) => {
       
       <div className="w-full">
       <hr className="bg-primary  my-2" />
-        <p className="text-gray-600 mb-4 text-left text-sm md:text-md text-wrap">
+        <p className="text-gray-600 mb-4 text-left text-sm md:text-md text-wrap w-screen md:w-full">
           {isExpanded ? note.content : truncatedContent}
           {note.content.length > 100 && (
             <button
