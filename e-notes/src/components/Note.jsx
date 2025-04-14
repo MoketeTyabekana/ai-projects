@@ -14,7 +14,7 @@ const Note = ({ note, editNote, deleteNote }) => {
 
   return (
     
-    <div className="bg-gray-50 md:p-4 p-2 md:rounded-lg rounded-sm md:shadow-md shadow-sm flex flex-col items-center ">
+    <div className="bg-gray-50 md:p-4 p-2 md:rounded-lg rounded-sm md:shadow-md shadow-sm flex flex-col items-center w-full">
       <div className="flex items-center md:justify-between w-full md:mb-4 mb-2 md:gap-4 gap-2">
         <PiNotepadFill className="text-button-bg rounded text-primary md:w-10 w-8 h-auto" />
         <div className="flex-1">
@@ -48,21 +48,20 @@ const Note = ({ note, editNote, deleteNote }) => {
           </button>
         </div>
       </div>
-      
-      <div className="w-full">
-      <hr className="bg-primary  my-2" />
-        <p className="text-gray-600 mb-4 text-left text-sm md:text-md text-wrap w-screen md:w-full">
-          {isExpanded ? note.content : truncatedContent}
-          {note.content.length > 100 && (
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="text-blue-500 hover:text-blue-600 text-md ml-2"
-            >
-              {isExpanded ? "View Less" : "View More"}
-            </button>
-          )}
-        </p>
-      </div>
+      <div className="w-full flex flex-col items-start">
+  <hr className="bg-primary my-2" />
+  <p className="text-gray-600 mb-4 text-left text-sm md:text-md w-full overflow-hidden break-words whitespace-normal word-wrap">
+    {isExpanded ? note.content : truncatedContent}
+    {note.content.length > 100 && (
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="text-blue-500 hover:text-blue-600 text-md ml-2 inline-block"
+      >
+        {isExpanded ? "View Less" : "View More"}
+      </button>
+    )}
+  </p>
+</div>
     </div>
   );
 };
